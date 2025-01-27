@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Калькулятор зарплаты</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <script src = "main.js"></script>  
+  <div class="container">
+    <h1>Калькулятор зарплаты</h1>
+    <form onsubmit="calculateSalary(); return false;">
+        <label for="sales">Общая сумма продаж за месяц (₽):</label>
+        <input type="number" id="sales" placeholder="Введите сумму продаж">
+        <button type="submit">Рассчитать зарплату</button>
+      </form>
+      <div id="result"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
