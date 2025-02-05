@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Наибольшее слово</title>
+</head>
+<body>
+    <label for="">Введите предложение</label>
+    <input type="text" id="inputText" placeholder="Enter a sentence">
+    <button onclick="findLongestWord()">Find Longest Word</button>
+    <p id="result"></p>
+
+    <script>
+        function findLongestWord() {
+            let input = document.getElementById("inputText").value;
+            let words = input.trim().split(/\s+/);
+            let maxLength = words.reduce((max, word) => Math.max(max, word.length), 0);
+            document.getElementById("result").textContent = "Длина самого длинного слова: " + maxLength;
+        }
+    </script>
+</body>
+</html>
