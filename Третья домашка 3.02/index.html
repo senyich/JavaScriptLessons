@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Последний локальный максимум</title>
+</head>
+<body>
+    <input type="text" id="arrayInput" placeholder="Введите числа через запятую">
+    <button onclick="findLastLocalMax()">Найти</button>
+    <p id="result"></p>
+
+    <script>
+        function findLastLocalMax() {
+            let input = document.getElementById('arrayInput').value;
+            let arr = input.split(',').map(Number);
+            let lastIndex = -1;
+            
+            for (let i = 1; i < arr.length - 1; i++) {
+                if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
+                    lastIndex = i;
+                }
+            }
+            document.getElementById('result').textContent = lastIndex !== -1 ? `Последний локальный максимум на позиции: ${lastIndex}` : 'Локальных максимумов нет';
+        }
+    </script>
+</body>
+</html>
