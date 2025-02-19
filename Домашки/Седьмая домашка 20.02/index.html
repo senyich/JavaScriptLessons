@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор строк</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h2>Генератор случайных строк</h2>
+
+    <label>Длина строки: <input type="number" id="length" value="10" min="1"></label><br><br>
+
+    <label><input type="checkbox" id="numbers"> Цифры (0-9)</label><br>
+    <label><input type="checkbox" id="uppercase"> Латинские буквы (A-Z)</label><br>
+    <label><input type="checkbox" id="lowercase"> Латинские буквы (a-z)</label><br><br>
+
+    <button id="generate">Generate</button><br><br>
+
+    <input type="text" id="output" readonly>
+
+    <script>
+        $(document).ready(function() {
+            $("#generate").click(function() {
+                var length = $("#length").val();
+                var characters = "";
+                if ($("#numbers").is(":checked")) characters += "0123456789";
+                if ($("#uppercase").is(":checked")) characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                if ($("#lowercase").is(":checked")) characters += "abcdefghijklmnopqrstuvwxyz";
+
+                if (characters.length === 0) {
+                    alert("Выберите хотя бы один тип символов!");
+                    return;
+                }
+
+                var result = "";
+                for (var i = 0; i < length; i++) {
+                    var randomIndex = Math.floor(Math.random() * characters.length);
+                    result += characters[randomIndex];
+                }
+
+                $("#output").val(result);
+            });
+        });
+    </script>
+
+</body>
+</html>
+5
