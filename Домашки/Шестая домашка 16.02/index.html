@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Частота слов</title>
+</head>
+<body>
+    <h2>Частота слов в тексте</h2>
+    <pre id="output"></pre>
+    <script>
+        const text = "дом который построил джек дом дом который который";//не стал текст полностью искать, для примера написал такой)
+        function countWords(text) {
+            const words = text.toLowerCase().split(/\s+/);
+            const wordMap = new Map();
+
+            words.forEach(word => {
+                wordMap.set(word, (wordMap.get(word) || 0) + 1);
+            });
+
+            return wordMap;
+        }
+        function displayWordFrequency() {
+            const wordFrequency = countWords(text);
+            let output = "";
+
+            wordFrequency.forEach((count, word) => {
+                output += `${word}: ${count}\n`;
+            });
+
+            document.getElementById("output").textContent = output;
+        }
+        displayWordFrequency();
+    </script>
+</body>
+</html>
