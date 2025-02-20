@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открытие и закрытие окна</title>
+    <script>
+        let newWindow;
+        
+        function openWindow() {
+            newWindow = window.open("https://itstep.org", "_blank", "width=640,height=480");
+        }
+        
+        function closeWindow() {
+            if (newWindow && !newWindow.closed) {
+                newWindow.close();
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="openWindow()">Открыть окно</button>
+    <button onclick="closeWindow()">Закрыть окно</button>
+</body>
+</html>
